@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.maventutorial</groupId>
-  <artifactId>IntroMaven</artifactId>
+  <artifactId>MavenProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
   <properties>
@@ -17,9 +17,97 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
-          
         </dependency>
     </dependencies>
+    
+    
+    <build>
+        <plugins>
+			<!--Clean plugin -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                   <execution>
+                       <id>auto-clean</id>
+                       <phase>initialize</phase>
+                       <goals>
+                           <goal>clean</goal>
+                       </goals>
+                   </execution>
+                </executions>
+            </plugin>
+            
+
+            
+                        <!-- resource plugin -->
+            <plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.3.1</version>	
+				<executions>
+                     <execution>
+			            <id>copy-resources</id>
+			            <phase>generate-sources</phase>
+			            <goals>
+			              <goal>copy-resources</goal>
+			            </goals>
+					<configuration>
+						<outputDirectory>${basedir}/target/</outputDirectory>
+						<resources>
+							<resource>
+								 <directory>source-files</directory>
+							<excludes>
+							<exclude>*.txt</exclude>
+							</excludes>
+							</resource>
+						</resources>
+					</configuration>
+			          </execution>
+				</executions>
+			</plugin>
+			
+			
+			<!-- package as jar with the dependencies -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-dependency-plugin</artifactId>
+			    <executions>
+			        <execution>
+			            <id>copy-dependencies</id>
+			            <phase>prepare-package</phase>
+			            <goals>
+			                <goal>copy-dependencies</goal>
+			            </goals>
+			            <configuration>
+			                <outputDirectory>
+			                    ${project.build.directory}/libs
+			                </outputDirectory>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+			
+			<!-- Jar package -->
+			<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-jar-plugin</artifactId>
+		    <configuration>
+		        <archive>
+		            <manifest>
+		                <addClasspath>true</addClasspath>
+		                <classpathPrefix>libs/</classpathPrefix>
+		                <mainClass>
+							HelloWorld
+		                </mainClass>
+		            </manifest>
+		        </archive>
+		    </configuration>
+		</plugin>
+			
+			
+			
+        </plugins>
+    </build>
   
   
 </project>
