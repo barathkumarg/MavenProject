@@ -1,3 +1,5 @@
 .classpath
 *.log
 .project
+*.iml
+/.metadata/
