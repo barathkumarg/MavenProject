@@ -3,3 +3,6 @@
 .project
 *.iml
 /.metadata/
+MavenProject/.settings/
+/.idea/
+MavenProject/.idea/

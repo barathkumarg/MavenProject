@@ -5,5 +5,9 @@ public class HelloWorld {
         System.out.println("Hello World!!!! ");
         System.out.println(StringUtils.capitalize("hello world"));
     }
+	
+	public String gethello() {
+		return "helloworld";
+	}
 
 }
