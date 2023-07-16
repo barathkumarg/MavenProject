@@ -1,35 +1,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.maventutorial</groupId>
-  <artifactId>MavenProject</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <parent>
+    <groupId>com.maventutorial</groupId>
+    <artifactId>MavenProject</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
   
-  <properties>
+  <artifactId>web-app</artifactId>
+  
+  <!-- Packaging -->
+  <packaging>jar</packaging>
+  
+   <!-- Properties -->
+    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
  </properties>
-
-    <packaging>pom</packaging>
-
-  <!-- Child modules -->
-    <modules>
-    	<module>JPA-Entity</module>
-    	<module>web-app</module>
-    </modules>
-    
-    
-    
+ 
+ <!-- Dependency-->
  <dependencies>
-    <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.8.1</version>
-      
-    </dependency>
-</dependencies>
-
-
+	 <dependency>
+		 <groupId>com.maventutorial</groupId>
+		 <artifactId>JPA-Entity</artifactId>
+		 <version>0.0.1-SNAPSHOT</version>
+	 </dependency>
+ </dependencies>
+  
+  
 </project>
