@@ -12,7 +12,7 @@
 	
 	<groupId>com.SpringbootApplication</groupId>
 	<artifactId>SpringApp</artifactId>
-	<version>1.1</version>
+	<version>1.2-SNAPSHOT</version>
 	<name>SpringAPP</name>
 	<description>Demo project for Spring Boot</description>
 	
